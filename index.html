@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vinayak's Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.5;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      background: #111827;
+      color: #f9fafb;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.75rem 0;
+    }
+
+    .nav-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 0.75rem 0.5rem;
+      display: inline-block;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    /* DROPDOWNS */
+
+    .dropdown-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0.4rem 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 190px;
+      background: #111827;
+      border-radius: 0 0 0.5rem 0.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      display: none;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #1f2937;
+      color: #ffffff;
+    }
+
+    .nav-item:hover > .dropdown-menu {
+      display: block;
+    }
+
+    /* SECOND-LEVEL (NESTED) DROPDOWNS UNDER COMP SC */
+
+    .dropdown-submenu {
+      position: relative;
+    }
+
+    .submenu-link {
+      display: block;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .submenu-link:hover {
+      background: #1f2937;
+      color: #ffffff;
+    }
+
+    .dropdown-menu.nested {
+      top: 0;
+      left: 100%;
+      margin-left: 2px;
+      border-radius: 0.5rem;
+    }
+
+    .dropdown-submenu:hover > .nested {
+      display: block;
+    }
+
+    /* PAGE LAYOUT */
+
+    .hero {
+      padding: 4rem 1.5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .hero p {
+      color: #4b5563;
+      max-width: 650px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .sections {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      color: #111827;
+    }
+
+    .card ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      color: #4b5563;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0 1.5rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 720px) {
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-brand">Vinayak's Notebook</div>
+    <ul class="nav-menu">
+      <!-- Maths -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Maths ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="maths-calculus.html">Calculus</a></li>
+          <li><a href="maths-probability.html">Probability</a></li>
+          <li><a href="maths-linear-algebra.html">Linear Algebra</a></li>
+        </ul>
+      </li>
+
+      <!-- Programming -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Programming ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="cpp.html">C++</a></li>
+          <li><a href="python.html">Python</a></li>
+        </ul>
+      </li>
+
+      <!-- Automotive -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Automotive ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="automotive-autosar.html">AUTOSAR</a></li>
+          <li><a href="automotive-sdv.html">SDV (Software Defined Vehicle)</a></li>
+          <li><a href="automotive-vehicle-networks.html">Vehicle Networks</a></li>
+          <li><a href="automotive-ivi.html">IVI (In-Vehicle Infotainment)</a></li>
+          <li><a href="automotive-adas.html">ADAS</a></li>
+        </ul>
+      </li>
+
+      <!-- Comp Sc (multi-level) -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Comp Sc ▾</span>
+        <ul class="dropdown-menu">
+          <!-- OS subject -->
+          <li class="dropdown-submenu">
+            <a href="os.html" class="submenu-link">OS ▸</a>
+            <ul class="dropdown-menu nested">
+              <!-- Add OS subtopics here later -->
+            </ul>
+          </li>
+
+          <!-- Computer Architecture subject -->
+          <li class="dropdown-submenu">
+            <a href="computer-architecture.html" class="submenu-link">Comp Arch ▸</a>
+            <ul class="dropdown-menu nested">
+              <!-- Add Comp Arch subtopics here later -->
+            </ul>
+          </li>
+
+          <!-- DSA subject with its subtopics -->
+          <li class="dropdown-submenu">
+            <a href="dsa.html" class="submenu-link">DSA ▸</a>
+            <ul class="dropdown-menu nested">
+              <li><a href="dsa-arrays.html">Arrays</a></li>
+              <li><a href="dsa-hashing.html">Hashing</a></li>
+              <li><a href="dsa-linked-lists.html">Linked Lists</a></li>
+              <li><a href="dsa-stacks.html">Stacks</a></li>
+              <li><a href="dsa-queues.html">Queues</a></li>
+              <li><a href="dsa-trees.html">Trees</a></li>
+              <li><a href="dsa-heaps.html">Heaps</a></li>
+              <li><a href="dsa-graphs.html">Graphs</a></li>
+              <li><a href="dsa-greedy.html">Greedy</a></li>
+              <li><a href="dsa-binary-search.html">Binary Search</a></li>
+              <li><a href="dsa-backtracking.html">Backtracking</a></li>
+              <li><a href="dsa-dynamic-programming.html">Dynamic Programming</a></li>
+              <!-- Extend further here -->
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- AI -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">AI ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="ai.html">AI Home</a></li>
+        </ul>
+      </li>
+
+      <!-- Design -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Design ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="design-patterns.html">Design Patterns</a></li>
+          <li><a href="architectural-patterns.html">Architectural Patterns</a></li>
+        </ul>
+      </li>
+
+      <!-- Cybersecurity -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Cybersecurity ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="cybersecurity.html">Overview</a></li>
+        </ul>
+      </li>
+
+      <!-- Readings -->
+      <li class="nav-item dropdown">
+        <span class="nav-link">Readings ▾</span>
+        <ul class="dropdown-menu">
+          <li><a href="readings.html">Reading List</a></li>
+        </ul>
+      </li>
+    </ul>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="hero">
+      <h1>Welcome to my tech notebook</h1>
+      <p>
+        This is my personal space to think out loud about maths, programming,
+        automotive software, AI and more.
+      </p>
+      <p>Current focus areas:</p>
+      <div class="hero-tags">
+        <span class="tag">C++</span>
+        <span class="tag">QNX / AUTOSAR</span>
+        <span class="tag">DSA revision</span>
+        <span class="tag">Linear Algebra</span>
+        <span class="tag">AI &amp; ML</span>
+      </div>
+    </section>
+
+    <section class="sections">
+      <article class="card">
+        <h2>Maths</h2>
+        <p>Foundations for ML and systems thinking.</p>
+        <ul>
+          <li>Functions &amp; limits</li>
+          <li>Calculus for optimization</li>
+          <li>Probability &amp; statistics</li>
+          <li>Linear algebra intuition</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Programming</h2>
+        <p>Hands-on notes in Modern C++ and Python.</p>
+        <ul>
+          <li>Patterns &amp; idioms</li>
+          <li>Dissecting cppreference.com :)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Automotive</h2>
+        <p>Thoughts from working in automotive software.</p>
+        <ul>
+          <li>AUTOSAR &amp; SDV</li>
+          <li>Vehicle networks</li>
+          <li>IVI &amp; ADAS </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Comp Sc</h2>
+        <p>Revision notes and deep dives.</p>
+        <ul>
+          <li>Operating Systems</li>
+          <li>Computer Architecture</li>
+          <li>Data Structures &amp; Algorithms</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>AI &amp; Readings</h2>
+        <p>Learning logs and curated reading lists.</p>
+        <ul>
+          <li>ML / AI experiments</li>
+          <li>Paper notes &amp; summaries</li>
+          <li>Books, blogs &amp; talks</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Vinayak · Hosted on GitHub Pages
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
