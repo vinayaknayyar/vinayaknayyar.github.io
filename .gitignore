@@ -1,0 +1,16 @@
+# Hugo build lock file
+.hugo_build.lock
+
+# Generated site
+public/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Node modules if any
+node_modules/

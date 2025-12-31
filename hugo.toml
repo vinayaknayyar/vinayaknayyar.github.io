@@ -1,0 +1,48 @@
+baseURL = 'https://vinayaknayyar.github.io/'
+languageCode = 'en-us'
+title = "Vinayak's Blog"
+theme = 'drishtikon'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+[params]
+    # Uncomment if you have a logo image
+    # logo = "/path-to-your-logo"
+
+    # Profile section for homepage
+    profilePhoto = "/images/profile_photo.jpeg"
+    profileDescription = """This is my personal space to think out loud about maths, computer science, programming, AI and more."""
+    profileUpdates = "Sharing insights on Algorithms, Systems Design, and AI. Check out my latest post on LRU Cache!"
+    github = "https://github.com/vinayaknayyar"
+    # email = "mailto:vinayakn23@iitk.com"
+    # linkedin = "https://in.linkedin.com/in/vinayak-nayyar"
+    math = true
+
+    # Uncomment to customize the colors
+    backgroundColor = "#feefc8ff"
+    linksColor = "#d03a58ff"
+    textColor = "#4c4c4cff"
+    headerColor = "#0a1f5dff"
+    paragraphColor = "#333333"
+    fontFamily = "Lato"
+    tableHeaderColor = "#cdf789ff"
+    tableContentColor = "#dcf6b3ff"
+    tableRowHoverColor = "#f6f2b3ff"
+    writingCardBackground = "#fdf1cd"    
+
+[menu]
+    [[menu.main]]
+        name = "Blog"
+        url = "/blog/"
+        weight = 10

@@ -1,0 +1,62 @@
+{{ define "title" }}Home{{ end }}
+{{ define "main" }}
+<div class="container">
+  <div class="homepage-columns">
+    <!-- Left: profile / intro (~30%) -->
+    <div class="left-column">
+      <div class="profile">
+        <img src="{{ .Site.Params.profilePhoto | default "/images/pfp.jpg" }}" alt="Profile Photo" class="profile-photo">
+      </div>
+      <div class="profile-description">
+        {{ with .Site.Params.profileDescription }}
+          {{ . | markdownify }}
+        {{ else }}
+          <p>Hi — I write about systems, algorithms and AI. Welcome to my site.</p>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Right: recent lists -->
+    <div class="right-column">
+      <div>
+        <h2 class="year-heading-homepage">Updates</h2>
+        <p>{{ .Site.Params.profileUpdates | markdownify }}</p>
+      </div>
+
+      <div>
+        <h2 class="year-heading-homepage">Recent Blog Posts</h2>
+        <ul class="post-list-homepage">
+          {{ $blogs := where site.RegularPages "Section" "blog" }}
+          {{ range first 5 ($blogs.ByDate.Reverse) }}
+            <li class="post-item-homepage">
+              <span class="post-title-homepage"><a href="{{ .RelPermalink }}" class="post-title-homepage-link">{{ .Title }}</a></span>
+              <span class="dot-leader"></span>
+              <span class="post-date-homepage">{{ .Date.Format "2006-01-02" }}</span>
+            </li>
+          {{ else }}
+            <li>No blog posts yet.</li>
+          {{ end }}
+        </ul>
+        <p class="all-posts-link-homepage"><a href="{{ "blog/" | relURL }}">See all blogs →</a></p>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2 class="year-heading-homepage">Recent Papers Read</h2>
+        <ul class="post-list-homepage">
+          {{ $papers := where site.RegularPages "Section" "papers" }}
+          {{ range first 5 ($papers.ByDate.Reverse) }}
+            <li class="post-item-homepage">
+              <span class="post-title-homepage"><a href="{{ .RelPermalink }}" class="post-title-homepage-link">{{ .Title }}</a></span>
+              <span class="dot-leader"></span>
+              <span class="post-date-homepage">{{ .Date.Format "2006-01-02" }}</span>
+            </li>
+          {{ else }}
+            <li>No papers yet.</li>
+          {{ end }}
+        </ul>
+        <p class="all-posts-link-homepage"><a href="{{ "papers/" | relURL }}">See all papers →</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
