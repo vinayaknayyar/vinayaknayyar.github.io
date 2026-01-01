@@ -1,0 +1,28 @@
+/* Site-level color overrides for headings and paragraphs */
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: var(--header-color) !important;
+}
+
+article p,
+.content p,
+p {
+  color: var(--paragraph-color) !important;
+}
+
+/* Slightly reduce weight for paragraph text for readability */
+article p, .content p, p { font-weight: 500; }
+
+/* Match list font weight to paragraphs for consistency */
+.post-content ul, .post-content ol, .post-content li { font-weight: 500; }
